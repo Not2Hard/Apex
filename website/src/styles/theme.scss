@@ -1,0 +1,16 @@
+
+@mixin content {
+  // padding: 2rem 5rem;  
+  padding: 20px 50px;
+
+  // @media (max-width: 820px) {
+  //   padding: 30px 10px;    
+  // }
+  @media (max-width: 600px) {
+    padding: 30px 10px;    
+  }
+}
+
+@mixin section-separator {
+  border-bottom: 1px solid rgba(0, 0, 0, .165);  
+}

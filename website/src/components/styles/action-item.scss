@@ -1,0 +1,73 @@
+.action-item {
+  $transition-duration: .3s;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  font-size: .87rem;
+  color: rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: $transition-duration;
+
+  .title {
+    font-weight: bold;
+    margin-bottom: .5rem;
+  }
+
+  &:hover {
+    color: rgba(0, 0, 0, 1);
+    transition: $transition-duration;
+
+    .images {
+      .image {
+        transform: scale(1.1);
+        transition: $transition-duration;
+      }
+      .shadow {
+        transition: $transition-duration;
+        transform: translateX(-50%) rotateX(85deg) scaleX(1.2);
+      }
+    }
+  }
+
+  .images {
+    position: relative;
+    padding-bottom: 1rem;
+    margin-top: -.5rem;
+    perspective: 800px;
+
+    .image {
+      transition: $transition-duration;
+
+      img.type {
+        &.flipped {
+          width: 0rem;  
+          height: 5rem;
+        }
+        width: 5rem;
+      }  
+    }
+  
+    .shadow {
+      position: absolute;
+      bottom: .2rem;
+      left: 50%;
+      width: 7rem; 
+      height: 7rem; 
+      transform: translateX(-50%) rotateX(85deg);
+      transform-origin: bottom;
+      transition: $transition-duration;
+
+      background-image: radial-gradient(rgba(0, 0, 0, .2), transparent 55%);
+    }  
+  }
+
+  div {
+    margin-top: .5rem;
+  }
+}

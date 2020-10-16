@@ -1,0 +1,19 @@
+@import '../../styles/theme.scss';
+
+.app-header {
+  @include content();
+  @include section-separator();
+
+  @media (max-width: 600px) {
+    // padding: 30px 10px;    
+    text-align: center;
+  }
+
+  font-weight: bold;
+  padding-top: 2rem;
+  
+  img {
+    transform: translateY(.3rem);
+    height: 2.25rem;
+  }  
+}

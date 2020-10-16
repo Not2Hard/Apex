@@ -1,0 +1,87 @@
+@import '../../styles/theme.scss';
+
+.app-message {
+  @include content();
+  @include section-separator();
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+  min-height: 15rem;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
+  // @media (max-width: 1200px) {
+  //   .message-content {
+  //     font-size: 1rem;
+  //   }
+  // }
+  @media (max-width: 1155px) {
+    .message-content.active {
+      .image {
+        display: none;
+      }
+      .details {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .message-content {
+    position: absolute;
+    display: flex;
+    margin: auto;
+
+    transform: rotateX(-90deg);
+    opacity: 0;
+    transition: 1s;
+    transform-origin: bottom;
+
+    .image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img {
+        width: 17rem;
+      }
+    }
+
+    &.active {
+      transform: rotateX(0deg);
+      opacity: 1;
+      transition: 1s;
+      transform-origin: bottom;
+    }
+
+    .cloud-message {
+      padding: .5rem;
+      font-size: .9rem;
+      color: rgba(0, 0, 0, .8);
+      text-align: center;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 7rem;
+
+      .swag-title {
+        font-size: 1.2rem;
+        color: rgba(0, 0, 0, .8);
+        font-weight: bold;
+      }
+
+      .swag-message {
+        font-weight: 300;
+        font-size: 1.5rem;
+        margin: .75rem auto;
+        color: #ff9000;
+      }
+    }
+  }
+}

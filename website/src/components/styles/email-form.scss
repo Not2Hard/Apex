@@ -1,0 +1,177 @@
+@import '../../styles/theme.scss';
+
+.email-form {
+  @include content();
+
+  position: relative;
+
+  $aws-color: #eb9c34;  
+
+  .contact-us {
+    display: flex;
+    align-items: center;
+
+    .phone {
+      flex-grow: 1;
+      text-align: right;
+      font-size: .8rem;
+    }
+  }
+
+  .status {
+    $transition-time: 1s;
+
+    border: 1px solid transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+
+    background-color: transparent;
+    z-index: 2;
+
+    transition: $transition-time;
+    transform: scale(1);
+
+    &:after {
+      content: 'Thank you!';
+      position: absolute;
+      text-transform: uppercase;
+      top: 50%;
+      left: 50%;
+      color: transparent;
+      font-size: 2.3rem;
+      font-weight: bold;
+      transform: translateX(-50%) translateY(-50%);
+      transition: $transition-time;
+    }
+
+    &.success {
+      pointer-events: all;
+      border: 1px solid green;
+      background-color: rgba(60, 179, 113, .1);
+      transition: $transition-time;
+      transform: scale(1.1);
+
+      &:after {
+        color: rgba(60, 179, 113, 1);
+        transition: $transition-time;
+      }
+    }
+  }
+
+  .progress-indicator {    
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+    pointer-events: none;
+
+    &.progress {
+      pointer-events: all;
+      cursor: progress;
+    }
+  }
+
+  .ui.form {
+    margin: -.5rem;
+    opacity: 1;
+    transition: 1s;
+    
+    &.progress {
+      opacity: 0.3;
+      transition: 1s;
+    }
+
+    .field {
+      position: relative;
+      flex-grow: 1;
+      margin: 1rem .5rem;
+      display: flex;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: .2rem;
+        background-color: transparent;
+        border-top-left-radius: .2rem;
+        border-bottom-left-radius: .2rem;
+        transition: .3s;
+      }
+      // &.error.message:after {
+      //   top: calc(.5rem + 1px);
+      // }
+
+      &.error:after {
+        transition: .3s;
+        background-color: red;
+      }
+
+      // &.error.message:after {
+      //   top: calc(.5rem + 1px);
+      // }
+  
+      > input, textarea {
+        position: relative;
+        flex-grow: 1;
+        padding: .5rem;
+        font-size: .75rem;
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, .15);
+        transition: .5s;
+        border-radius: .2rem;
+  
+        &:focus {
+          border: 1px solid $aws-color;
+          transition: .5s;
+        }
+
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: 10px;
+          background-color: green;
+        }
+      }    
+    }
+  
+    .fields {
+      display: flex;
+    }
+  
+    
+    // input, textarea {
+    //   margin-top: .5rem;
+    // }
+
+    .actions {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .ui.button {
+      border: 1px solid darken($aws-color, 10%);
+      padding: .5rem 2.5rem;
+      background-color: $aws-color;
+      color: white;
+      font-weight: bold;
+      outline: none;
+      transition: .5s;
+      font-size: .8rem;
+
+      &:hover {
+        background-color: lighten($aws-color, 10%);
+        transition: .5s;
+      }
+    }
+  }
+}
